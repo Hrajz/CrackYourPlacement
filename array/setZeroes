@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        set<int>row;
+        set<int>col;
+        for(int i=0;i<matrix.size();i++){
+            for(int j=0;j<matrix[0].size();j++){
+                if(matrix[i][j]==0){
+                    col.insert(j);
+                    row.insert(i);
+                }
+            }
+        }
+        for(int i=0;i<matrix.size();i++){
+            if(row.contains(i)){
+                vector<int>temp(matrix[0].size(),0);
+                matrix[i] = temp;
+            }
+        }
+        for(int j=0;j<matrix[0].size();j++){
+            if(col.contains(j)){
+                for(int n=0;n<matrix.size();n++){
+                    matrix[n][j]=0;
+                }
+            }
+        }          
+    return;
+    }
+};
