@@ -1,0 +1,12 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        map<int,int>map;
+        int index=0;
+        for(auto i: nums)map[i]=index++;
+        for(auto i=0;i<nums.size();i++){
+            if(map.contains(target-nums[i]) && i!=map[target-nums[i]])return {i,map[target-nums[i]]};
+        }
+    return {-1,-1};
+    }
+};
